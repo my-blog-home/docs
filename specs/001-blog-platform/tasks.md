@@ -163,16 +163,16 @@ description: "개인 블로그 서비스 (MVP) 구현 할 일 목록"
 
 ### Tests for User Story 4 (헌법 지정 항목)
 
-- [ ] T057 [P] [US4] 댓글·좋아요 권한 통합 테스트: 작성자도 블로그 주인도 아닌 회원의 댓글 삭제 `404`, 비회원 등록 `401`, 자기 글 좋아요 `400`, 5초 안 재등록 `429` in `test/comment/CommentAuthorizationIT.java` (FR-038~040)
+- [x] T057 [P] [US4] 댓글·좋아요 권한 통합 테스트: 작성자도 블로그 주인도 아닌 회원의 댓글 삭제 `404`, 비회원 등록 `401`, 자기 글 좋아요 `400`, 5초 안 재등록 `429` in `test/comment/CommentAuthorizationIT.java` (FR-038~040)
 
 ### Implementation for User Story 4
 
-- [ ] T058 [US4] Flyway 마이그레이션: `comment`(`author_id NULL FK ON DELETE SET NULL`, `content VARCHAR(500) NOT NULL`), `post_like`(`UNIQUE(post_id, member_id)`) in `res/db/migration/V5__comment_like.sql`
-- [ ] T059 [P] [US4] `Comment`, `PostLike` 엔터티와 저장소 in `api/comment/domain/`, `api/post/domain/PostLike.java`
-- [ ] T060 [US4] 댓글 서비스: 내용 `1~500자`(공백만 불가), Redis `comment-cooldown:{memberId}` 5초, 삭제 권한(작성자 또는 글의 블로그 주인), 글을 볼 수 있을 때만 조회 in `api/comment/service/CommentService.java` (FR-038, FR-039)
-- [ ] T061 [US4] 좋아요 서비스: 켜고 끄기, 자기 글 금지, 개수와 내 상태 in `api/post/service/LikeService.java` (FR-040)
-- [ ] T062 [US4] 댓글·좋아요 API: `GET/POST /api/posts/{id}/comments`, `DELETE /api/comments/{id}`, `PUT /api/posts/{id}/like`, 글 상세 응답에 `likeCount`·`likedByMe`·`commentCount` 추가 in `api/comment/web/CommentController.java`, `api/post/web/LikeController.java`
-- [ ] T063 [US4] 글 상세에 댓글 목록(오래된 순, "탈퇴한 사용자"), 입력칸(비회원 안내), 삭제 확인, 좋아요 버튼 추가 in `web/pages/PostDetailPage.tsx`, `web/components/CommentSection.tsx`, `web/components/LikeButton.tsx`
+- [x] T058 [US4] Flyway 마이그레이션: `comment`(`author_id NULL FK ON DELETE SET NULL`, `content VARCHAR(500) NOT NULL`), `post_like`(`UNIQUE(post_id, member_id)`) in `res/db/migration/V5__comment_like.sql`
+- [x] T059 [P] [US4] `Comment`, `PostLike` 엔터티와 저장소 in `api/comment/domain/`, `api/post/domain/PostLike.java`
+- [x] T060 [US4] 댓글 서비스: 내용 `1~500자`(공백만 불가), Redis `comment-cooldown:{memberId}` 5초, 삭제 권한(작성자 또는 글의 블로그 주인), 글을 볼 수 있을 때만 조회 in `api/comment/service/CommentService.java` (FR-038, FR-039)
+- [x] T061 [US4] 좋아요 서비스: 켜고 끄기, 자기 글 금지, 개수와 내 상태 in `api/post/service/LikeService.java` (FR-040)
+- [x] T062 [US4] 댓글·좋아요 API: `GET/POST /api/posts/{id}/comments`, `DELETE /api/comments/{id}`, `PUT /api/posts/{id}/like`, 글 상세 응답에 `likeCount`·`likedByMe`·`commentCount` 추가 in `api/comment/web/CommentController.java`, `api/post/web/LikeController.java`
+- [x] T063 [US4] 글 상세에 댓글 목록(오래된 순, "탈퇴한 사용자"), 입력칸(비회원 안내), 삭제 확인, 좋아요 버튼 추가 in `web/pages/PostDetailPage.tsx`, `web/components/CommentSection.tsx`, `web/components/LikeButton.tsx`
 
 **Checkpoint**: 시나리오 D 통과
 
@@ -186,18 +186,18 @@ description: "개인 블로그 서비스 (MVP) 구현 할 일 목록"
 
 ### Tests for User Story 5 (헌법 지정 항목)
 
-- [ ] T064 [P] [US5] 비밀번호 찾기 비노출 통합 테스트: 가입·미가입·탈퇴 이메일의 응답·제한 동작이 같고 메일은 가입된 이메일에만 발송, 변경 후 모든 세션 삭제와 잠금 해제 in `test/user/PasswordResetIT.java` (FR-020, FR-021, SC-005)
-- [ ] T065 [P] [US5] 비밀번호 변경·탈퇴 통합 테스트: 다른 세션만 끊김, 현재 비밀번호 오입력이 로그인 실패에 합산, 탈퇴 후 남의 글 댓글 작성자 NULL·재가입 가능 in `test/user/AccountManagementIT.java` (FR-017~019)
+- [x] T064 [P] [US5] 비밀번호 찾기 비노출 통합 테스트: 가입·미가입·탈퇴 이메일의 응답·제한 동작이 같고 메일은 가입된 이메일에만 발송, 변경 후 모든 세션 삭제와 잠금 해제 in `test/user/PasswordResetIT.java` (FR-020, FR-021, SC-005)
+- [x] T065 [P] [US5] 비밀번호 변경·탈퇴 통합 테스트: 다른 세션만 끊김, 현재 비밀번호 오입력이 로그인 실패에 합산, 탈퇴 후 남의 글 댓글 작성자 NULL·재가입 가능 in `test/user/AccountManagementIT.java` (FR-017~019)
 
 ### Implementation for User Story 5
 
-- [ ] T066 [US5] 마이페이지 서비스: 정보 조회, 닉네임(자기 닉네임은 중복 아님)·소개 `0~100자` 수정 in `api/user/service/MyPageService.java` (FR-016)
-- [ ] T067 [US5] 비밀번호 변경 서비스: 현재 비밀번호 확인(틀리면 실패 횟수 +1), 새 비밀번호 규칙·현재와 다름, 지금 세션 빼고 삭제 in `api/user/service/PasswordChangeService.java` (FR-017, FR-018)
-- [ ] T068 [US5] 탈퇴 서비스: 비밀번호 확인, research R-14 순서대로 한 트랜잭션 삭제·NULL 처리, 이미지 파일은 트랜잭션 후 삭제, 모든 세션 삭제 in `api/user/service/WithdrawalService.java` (FR-019)
-- [ ] T069 [US5] 비밀번호 찾기 서비스: `reset` 용도 인증번호(가입 안 된 이메일은 번호 저장 없이 제한만 증가), 30분 안 재확인, 한 트랜잭션으로 비밀번호·실패 횟수·잠금 초기화, 모든 세션 삭제, 인증됨 표시 삭제 in `api/user/service/PasswordResetService.java` (FR-020, FR-021)
-- [ ] T070 [US5] 계정 API: `GET/PATCH/DELETE /api/me`, `PUT /api/me/password`, `POST /api/auth/password-reset/verification`, `/confirm`, `POST /api/auth/password-reset` in `api/user/web/MyPageController.java`, `api/user/web/PasswordResetController.java`
-- [ ] T071 [P] [US5] 마이페이지 화면: 내 정보(바뀐 것 없으면 저장 비활성, 이탈 확인), 비밀번호 변경, 탈퇴(안내·체크·최종 확인), 내 블로그 바로가기 in `web/pages/MyPage.tsx` (FR-016~019)
-- [ ] T072 [P] [US5] 비밀번호 찾기 화면(로그인 상태면 첫 화면으로, 항상 같은 안내, 완료 후 로그인 화면) in `web/pages/PasswordResetPage.tsx` (FR-020, FR-021)
+- [x] T066 [US5] 마이페이지 서비스: 정보 조회, 닉네임(자기 닉네임은 중복 아님)·소개 `0~100자` 수정 in `api/user/service/MyPageService.java` (FR-016)
+- [x] T067 [US5] 비밀번호 변경 서비스: 현재 비밀번호 확인(틀리면 실패 횟수 +1), 새 비밀번호 규칙·현재와 다름, 지금 세션 빼고 삭제 in `api/user/service/PasswordChangeService.java` (FR-017, FR-018)
+- [x] T068 [US5] 탈퇴 서비스: 비밀번호 확인, research R-14 순서대로 한 트랜잭션 삭제·NULL 처리, 이미지 파일은 트랜잭션 후 삭제, 모든 세션 삭제 in `api/user/service/WithdrawalService.java` (FR-019)
+- [x] T069 [US5] 비밀번호 찾기 서비스: `reset` 용도 인증번호(가입 안 된 이메일은 번호 저장 없이 제한만 증가), 30분 안 재확인, 한 트랜잭션으로 비밀번호·실패 횟수·잠금 초기화, 모든 세션 삭제, 인증됨 표시 삭제 in `api/user/service/PasswordResetService.java` (FR-020, FR-021)
+- [x] T070 [US5] 계정 API: `GET/PATCH/DELETE /api/me`, `PUT /api/me/password`, `POST /api/auth/password-reset/verification`, `/confirm`, `POST /api/auth/password-reset` in `api/user/web/MyPageController.java`, `api/user/web/PasswordResetController.java`
+- [x] T071 [P] [US5] 마이페이지 화면: 내 정보(바뀐 것 없으면 저장 비활성, 이탈 확인), 비밀번호 변경, 탈퇴(안내·체크·최종 확인), 내 블로그 바로가기 in `web/pages/MyPage.tsx` (FR-016~019)
+- [x] T072 [P] [US5] 비밀번호 찾기 화면(로그인 상태면 첫 화면으로, 항상 같은 안내, 완료 후 로그인 화면) in `web/pages/PasswordResetPage.tsx` (FR-020, FR-021)
 
 **Checkpoint**: 시나리오 E 통과
 
@@ -211,20 +211,20 @@ description: "개인 블로그 서비스 (MVP) 구현 할 일 목록"
 
 ### Tests for User Story 6 (헌법 지정 항목)
 
-- [ ] T073 [P] [US6] 관리 API 권한 통합 테스트: `/api/manage/blogs/{id}/**`를 남이 부르면 `404`, 비회원 `401` in `test/stats/ManageAuthorizationIT.java` (FR-044)
+- [x] T073 [P] [US6] 관리 API 권한 통합 테스트: `/api/manage/blogs/{id}/**`를 남이 부르면 `404`, 비회원 `401` in `test/stats/ManageAuthorizationIT.java` (FR-044)
 
 ### Implementation for User Story 6
 
-- [ ] T074 [US6] 관리 공통 권한 검사(블로그 주인인지, 아니면 `404`) in `api/blog/service/BlogOwnerGuard.java` (FR-044, NF-02)
-- [ ] T075 [US6] 글 관리 조회: 비공개 포함 내 글, 공개 여부·분류 거르기, 조회수·댓글 수 포함, 10개씩 in `api/post/service/ManagePostQueryService.java` (FR-046)
-- [ ] T076 [US6] 새 댓글 서비스: `comments_last_viewed_at`(없으면 블로그 생성 시각) 이후 + 작성자 ≠ 주인인 댓글 수, 댓글 관리 조회 시 `isNew` 계산 후 시각 갱신 in `api/comment/service/NewCommentService.java` (FR-049, research R-13)
-- [ ] T077 [US6] 관리 API: `GET /api/manage/blogs/{id}/posts`, `GET /api/manage/blogs/{id}/comments`(내용 앞 `50자`), `GET /api/auth/me`에 `newCommentCount` 추가 in `api/blog/web/ManageController.java`, `api/user/web/AuthController.java` (FR-046, FR-048, FR-049)
-- [ ] T078 [P] [US6] 관리 화면 틀: 왼쪽 메뉴(좁은 화면은 위쪽 가로 목록), 새 댓글 숫자, `내 블로그 보기`, `글쓰기` in `web/pages/manage/ManageLayout.tsx` (FR-044)
-- [ ] T079 [P] [US6] 글 관리 화면 in `web/pages/manage/ManagePostsPage.tsx` (FR-046)
-- [ ] T080 [P] [US6] 분류 관리 화면: 색 점·이름·글 수, 이름 변경, 위·아래, 삭제 안내, 하단 고정 안내 in `web/pages/manage/ManageCategoriesPage.tsx` (FR-047)
-- [ ] T081 [P] [US6] 댓글 관리 화면: 최신순, `NEW`, 글 제목 → 댓글 위치 이동, 삭제 in `web/pages/manage/ManageCommentsPage.tsx` (FR-048)
-- [ ] T082 [P] [US6] 설정 화면: 이름·소개 "n/200" in `web/pages/manage/ManageSettingsPage.tsx` (FR-022)
-- [ ] T083 [US6] 머리글 사용자 메뉴에 새 댓글 숫자와 `블로그 관리`·`마이페이지` 항목 추가 in `web/components/Header.tsx` (FR-049)
+- [x] T074 [US6] 관리 공통 권한 검사(블로그 주인인지, 아니면 `404`) in `api/blog/service/BlogOwnerGuard.java` (FR-044, NF-02)
+- [x] T075 [US6] 글 관리 조회: 비공개 포함 내 글, 공개 여부·분류 거르기, 조회수·댓글 수 포함, 10개씩 in `api/post/service/ManagePostQueryService.java` (FR-046)
+- [x] T076 [US6] 새 댓글 서비스: `comments_last_viewed_at`(없으면 블로그 생성 시각) 이후 + 작성자 ≠ 주인인 댓글 수, 댓글 관리 조회 시 `isNew` 계산 후 시각 갱신 in `api/comment/service/NewCommentService.java` (FR-049, research R-13)
+- [x] T077 [US6] 관리 API: `GET /api/manage/blogs/{id}/posts`, `GET /api/manage/blogs/{id}/comments`(내용 앞 `50자`), `GET /api/auth/me`에 `newCommentCount` 추가 in `api/blog/web/ManageController.java`, `api/user/web/AuthController.java` (FR-046, FR-048, FR-049)
+- [x] T078 [P] [US6] 관리 화면 틀: 왼쪽 메뉴(좁은 화면은 위쪽 가로 목록), 새 댓글 숫자, `내 블로그 보기`, `글쓰기` in `web/pages/manage/ManageLayout.tsx` (FR-044)
+- [x] T079 [P] [US6] 글 관리 화면 in `web/pages/manage/ManagePostsPage.tsx` (FR-046)
+- [x] T080 [P] [US6] 분류 관리 화면: 색 점·이름·글 수, 이름 변경, 위·아래, 삭제 안내, 하단 고정 안내 in `web/pages/manage/ManageCategoriesPage.tsx` (FR-047)
+- [x] T081 [P] [US6] 댓글 관리 화면: 최신순, `NEW`, 글 제목 → 댓글 위치 이동, 삭제 in `web/pages/manage/ManageCommentsPage.tsx` (FR-048)
+- [x] T082 [P] [US6] 설정 화면: 이름·소개 "n/200" in `web/pages/manage/ManageSettingsPage.tsx` (FR-022)
+- [x] T083 [US6] 머리글 사용자 메뉴에 새 댓글 숫자와 `블로그 관리`·`마이페이지` 항목 추가 in `web/components/Header.tsx` (FR-049)
 
 **Checkpoint**: 시나리오 F1~F3 통과
 
@@ -238,13 +238,13 @@ description: "개인 블로그 서비스 (MVP) 구현 할 일 목록"
 
 ### Implementation for User Story 7
 
-- [ ] T084 [US7] Flyway 마이그레이션: `daily_stats`(`stat_date DATE NOT NULL`, `view_count INT NOT NULL DEFAULT 0`, `visitor_count INT NOT NULL DEFAULT 0`, `UNIQUE(blog_id, stat_date)`) in `res/db/migration/V6__daily_stats.sql`
-- [ ] T085 [US7] 방문자 구분값: 로그인 회원 `m:{id}`, 비회원 쿠키 `vid`(UUID, 1년) `v:{uuid}` 발급 필터 in `api/stats/VisitorKeyFilter.java` (research R-12)
-- [ ] T086 [US7] 집계 서비스: 블로그 주인 본인 제외, Redis `view:{postId}:{visitor}` 30분 / `visit:{blogId}:{visitor}:{yyyyMMdd}` 한국 시간 자정까지, `daily_stats` UPSERT와 `post.view_count + 1`, 글 상세 조회 때 호출 in `api/stats/ViewCountService.java`, `api/post/web/PostController.java` (FR-050)
-- [ ] T087 [US7] 대시보드·통계 조회: 오늘·어제·누적(합계), 30일 일별(없는 날 0), 최근 7일 인기 공개 글 5, 최근 글 5, 기간 7/30일 일별 조회수·방문자·댓글 수 in `api/stats/StatsQueryService.java` (FR-045, FR-051)
-- [ ] T088 [US7] 대시보드·통계 API: `GET /api/manage/blogs/{id}/dashboard`, `GET /api/manage/blogs/{id}/stats?days=` in `api/stats/StatsController.java`
-- [ ] T089 [P] [US7] 대시보드 화면(숫자 카드, 30일 선 그래프, 인기 글, 최근 글, 빈 상태) in `web/pages/manage/DashboardPage.tsx` (FR-045)
-- [ ] T090 [P] [US7] 통계 화면(7/30일 선택, 두 그래프, 마우스를 올리면 그날 숫자) in `web/pages/manage/StatsPage.tsx` (FR-051)
+- [x] T084 [US7] Flyway 마이그레이션: `daily_stats`(`stat_date DATE NOT NULL`, `view_count INT NOT NULL DEFAULT 0`, `visitor_count INT NOT NULL DEFAULT 0`, `UNIQUE(blog_id, stat_date)`) in `res/db/migration/V6__daily_stats.sql`
+- [x] T085 [US7] 방문자 구분값: 로그인 회원 `m:{id}`, 비회원 쿠키 `vid`(UUID, 1년) `v:{uuid}` 발급 필터 in `api/stats/VisitorKeyFilter.java` (research R-12)
+- [x] T086 [US7] 집계 서비스: 블로그 주인 본인 제외, Redis `view:{postId}:{visitor}` 30분 / `visit:{blogId}:{visitor}:{yyyyMMdd}` 한국 시간 자정까지, `daily_stats` UPSERT와 `post.view_count + 1`, 글 상세 조회 때 호출 in `api/stats/ViewCountService.java`, `api/post/web/PostController.java` (FR-050)
+- [x] T087 [US7] 대시보드·통계 조회: 오늘·어제·누적(합계), 30일 일별(없는 날 0), 최근 7일 인기 공개 글 5, 최근 글 5, 기간 7/30일 일별 조회수·방문자·댓글 수 in `api/stats/StatsQueryService.java` (FR-045, FR-051)
+- [x] T088 [US7] 대시보드·통계 API: `GET /api/manage/blogs/{id}/dashboard`, `GET /api/manage/blogs/{id}/stats?days=` in `api/stats/StatsController.java`
+- [x] T089 [P] [US7] 대시보드 화면(숫자 카드, 30일 선 그래프, 인기 글, 최근 글, 빈 상태) in `web/pages/manage/DashboardPage.tsx` (FR-045)
+- [x] T090 [P] [US7] 통계 화면(7/30일 선택, 두 그래프, 마우스를 올리면 그날 숫자) in `web/pages/manage/StatsPage.tsx` (FR-051)
 
 **Checkpoint**: 시나리오 F4~F6 통과
 
@@ -258,16 +258,16 @@ description: "개인 블로그 서비스 (MVP) 구현 할 일 목록"
 
 ### Implementation for User Story 8
 
-- [ ] T091 [US8] Flyway 마이그레이션: `tag`(`name VARCHAR(15) NOT NULL UNIQUE(lower(name))`), `post_tag`(PK(post_id, tag_id)), `report`(`reason VARCHAR(20) NOT NULL CHECK IN ('SPAM','ABUSE','ADULT','ETC')`, `detail VARCHAR(200) NULL`, `UNIQUE(post_id, reporter_id)`), `post_image`(`post_id NULL`, `storage_key VARCHAR(100) NOT NULL UNIQUE`, `content_type VARCHAR(20) NOT NULL`, `size_bytes INT NOT NULL CHECK ≤ 5MB`) in `res/db/migration/V7__tag_report_image.sql`
-- [ ] T092 [P] [US8] `Tag`, `PostTag`, `Report`, `PostImage` 엔터티와 저장소 in `api/post/domain/`
-- [ ] T093 [US8] 태그 처리: 앞 `#` 제거, `1~15자`, 공백·쉼표 불가, 대소문자 무시, 글당 최대 5개, 같은 글 중복 제거, 글 저장·수정 때 연결 in `api/post/service/TagService.java`, `api/post/service/PostService.java` (FR-041)
-- [ ] T094 [US8] 태그별 공개 글 목록 API `GET /api/tags/{name}/posts` in `api/post/web/TagController.java` (FR-041)
-- [ ] T095 [US8] 신고 서비스·API: 자기 글 금지, 사유 4종, 기타 설명 `0~200자`, 중복 `409` in `api/post/service/ReportService.java`, `api/post/web/ReportController.java` (FR-042)
-- [ ] T096 [P] [US8] `ImageStorage` 인터페이스와 `S3ImageStorage`(MinIO), `DiskImageStorage` in `api/post/image/` (research R-08, 헌법 V)
-- [ ] T097 [US8] 이미지 업로드 서비스·API: 매직 넘버로 jpg·png·gif·webp 확인, `5MB` 이하, UUID 파일 이름, 글당 `10장`, 글 저장 시 본문에 있는 이미지만 연결, `GET /images/{key}`(공개 글 또는 본인만) in `api/post/image/ImageService.java`, `api/post/web/ImageController.java` (FR-043)
-- [ ] T098 [US8] 글 삭제·탈퇴 때 이미지 파일 삭제, 24시간 지난 미연결 이미지 하루 한 번 정리(`@Scheduled`) in `api/post/image/ImageCleanupJob.java` (FR-030, research R-08)
-- [ ] T099 [P] [US8] 글쓰기 화면에 태그 입력(최대 5개)과 이미지 올리기(조건 안내, 본문에 주소 삽입) 추가 in `web/pages/PostEditorPage.tsx`, `web/components/TagInput.tsx`, `web/components/ImageUploadButton.tsx`
-- [ ] T100 [P] [US8] 글 상세에 태그 목록과 신고 버튼(자기 글이면 숨김, 사유 선택 모달), 태그별 목록 화면 in `web/pages/PostDetailPage.tsx`, `web/components/ReportModal.tsx`, `web/pages/TagPage.tsx`
+- [x] T091 [US8] Flyway 마이그레이션: `tag`(`name VARCHAR(15) NOT NULL UNIQUE(lower(name))`), `post_tag`(PK(post_id, tag_id)), `report`(`reason VARCHAR(20) NOT NULL CHECK IN ('SPAM','ABUSE','ADULT','ETC')`, `detail VARCHAR(200) NULL`, `UNIQUE(post_id, reporter_id)`), `post_image`(`post_id NULL`, `storage_key VARCHAR(100) NOT NULL UNIQUE`, `content_type VARCHAR(20) NOT NULL`, `size_bytes INT NOT NULL CHECK ≤ 5MB`) in `res/db/migration/V7__tag_report_image.sql`
+- [x] T092 [P] [US8] `Tag`, `PostTag`, `Report`, `PostImage` 엔터티와 저장소 in `api/post/domain/`
+- [x] T093 [US8] 태그 처리: 앞 `#` 제거, `1~15자`, 공백·쉼표 불가, 대소문자 무시, 글당 최대 5개, 같은 글 중복 제거, 글 저장·수정 때 연결 in `api/post/service/TagService.java`, `api/post/service/PostService.java` (FR-041)
+- [x] T094 [US8] 태그별 공개 글 목록 API `GET /api/tags/{name}/posts` in `api/post/web/TagController.java` (FR-041)
+- [x] T095 [US8] 신고 서비스·API: 자기 글 금지, 사유 4종, 기타 설명 `0~200자`, 중복 `409` in `api/post/service/ReportService.java`, `api/post/web/ReportController.java` (FR-042)
+- [x] T096 [P] [US8] `ImageStorage` 인터페이스와 `S3ImageStorage`(MinIO), `DiskImageStorage` in `api/post/image/` (research R-08, 헌법 V)
+- [x] T097 [US8] 이미지 업로드 서비스·API: 매직 넘버로 jpg·png·gif·webp 확인, `5MB` 이하, UUID 파일 이름, 글당 `10장`, 글 저장 시 본문에 있는 이미지만 연결, `GET /images/{key}`(공개 글 또는 본인만) in `api/post/image/ImageService.java`, `api/post/web/ImageController.java` (FR-043)
+- [x] T098 [US8] 글 삭제·탈퇴 때 이미지 파일 삭제, 24시간 지난 미연결 이미지 하루 한 번 정리(`@Scheduled`) in `api/post/image/ImageCleanupJob.java` (FR-030, research R-08)
+- [x] T099 [P] [US8] 글쓰기 화면에 태그 입력(최대 5개)과 이미지 올리기(조건 안내, 본문에 주소 삽입) 추가 in `web/pages/PostEditorPage.tsx`, `web/components/TagInput.tsx`, `web/components/ImageUploadButton.tsx`
+- [x] T100 [P] [US8] 글 상세에 태그 목록과 신고 버튼(자기 글이면 숨김, 사유 선택 모달), 태그별 목록 화면 in `web/pages/PostDetailPage.tsx`, `web/components/ReportModal.tsx`, `web/pages/TagPage.tsx`
 
 **Checkpoint**: 시나리오 G 통과. 모든 사용자 시나리오 완료
 
@@ -277,13 +277,13 @@ description: "개인 블로그 서비스 (MVP) 구현 할 일 목록"
 
 **Purpose**: 여러 시나리오에 걸친 마무리
 
-- [ ] T101 [P] 스크립트 실행 차단 점검: 본문·댓글에 `<script>`, `javascript:` 링크, `onerror` 속성을 넣어도 실행되지 않음을 확인하는 화면 테스트 in `frontend/src/components/MarkdownView.test.tsx` (FR-053, quickstart S1)
-- [ ] T102 [P] 비밀번호 원문이 로그·오류에 남지 않는지 점검(요청 로그에서 `password` 칸 가리기) in `api/common/logging/` (FR-054, quickstart S5)
-- [ ] T103 [P] 360px 화면 점검과 수정(관리 화면 메뉴, 표, 그래프) in `web/styles/` (FR-052, SC-007)
-- [ ] T104 성능 점검: 글 1,000개 블로그에서 목록·상세 2초 이내 확인, 느리면 색인·쿼리 수정 in `res/db/migration/` (SC-003)
-- [ ] T105 [P] 안내 문구가 원천 문서 `안내 문구` 표와 같은지 대조 in `res/messages.properties`, `web/messages.ts` (FR-057)
-- [ ] T106 [P] 코드 저장소 README에 실행 방법(compose, dev 프로필, 로그에서 인증번호 보기) 정리 in `README.md`
-- [ ] T107 [quickstart.md](quickstart.md) 시나리오 A~G와 보안·성능 점검을 처음부터 끝까지 다시 실행
+- [x] T101 [P] 스크립트 실행 차단 점검: 본문·댓글에 `<script>`, `javascript:` 링크, `onerror` 속성을 넣어도 실행되지 않음을 확인하는 화면 테스트 in `frontend/src/components/MarkdownView.test.tsx` (FR-053, quickstart S1)
+- [x] T102 [P] 비밀번호 원문이 로그·오류에 남지 않는지 점검(요청 로그에서 `password` 칸 가리기) in `api/common/logging/` (FR-054, quickstart S5)
+- [x] T103 [P] 360px 화면 점검과 수정(관리 화면 메뉴, 표, 그래프) in `web/styles/` (FR-052, SC-007)
+- [x] T104 성능 점검: 글 1,000개 블로그에서 목록·상세 2초 이내 확인, 느리면 색인·쿼리 수정 in `res/db/migration/` (SC-003)
+- [x] T105 [P] 안내 문구가 원천 문서 `안내 문구` 표와 같은지 대조 in `res/messages.properties`, `web/messages.ts` (FR-057)
+- [x] T106 [P] 코드 저장소 README에 실행 방법(compose, dev 프로필, 로그에서 인증번호 보기) 정리 in `README.md`
+- [x] T107 [quickstart.md](quickstart.md) 시나리오 A~G와 보안·성능 점검을 처음부터 끝까지 다시 실행
 
 ---
 
@@ -377,6 +377,21 @@ Task: "로그인 화면·모달 in web/pages/LoginPage.tsx"
   - T041~T042: 분류 관리 화면은 관리 화면(US6) 전이라 블로그 화면 옆에 주인에게만 보이게 넣었다.
   - 글 삭제 API는 `204` 대신 `200 {blogId}`를 돌려준다. 화면이 지운 뒤 블로그 목록으로 돌아가기 위해서다.
   - 비밀번호 찾기(US5)에서 가입되지 않은 이메일도 화면 흐름이 같도록, 그 이메일에는 아무도 모르는 번호를 저장한다(research R-04 보강).
+
+### 2026-10-08: 나머지 시나리오(US4~US8)와 마무리
+
+- T057~T107을 모두 마쳤다. 남은 작업은 T006(서식 도구) 하나다.
+- 확인한 것: 서버 통합 테스트 55개, 화면 테스트 6개 통과. 브라우저와 API로 댓글·좋아요·신고·관리 화면·새 댓글·통계를 확인했다.
+  글 1,000개를 넣은 블로그에서 목록·상세·검색이 0.2초 안에 열렸다(SC-003). 360px 폭에서 모든 화면이 가로 스크롤 없이 열렸다(SC-007).
+  원천 문서 `안내 문구` 표의 문구 47개가 모두 코드에 있다(T105).
+- 계획과 다르게 한 것:
+  - T096: 이미지는 서버 디스크(`DiskImageStorage`)에만 저장한다. MinIO(S3) 구현은 배포 환경이 정해지면 `ImageStorage`에 더한다.
+  - 마이그레이션 번호: V5 댓글·좋아요, V6 태그·신고·이미지, V7 통계 순서로 만들었다.
+  - "최근 7일 인기 글"(BM-02-3)을 구하려고 `post_daily_views`(글별 일별 조회수) 표를 더했다.
+  - 새 댓글 수는 `/api/auth/me`가 아니라 `GET /api/manage/new-comments`로 따로 준다(user 모듈이 comment 모듈을 부르지 않도록).
+  - 댓글 관리의 읽음 처리는 목록 조회와 분리해 `POST /api/manage/blogs/{id}/comments/read`로 한다. 조회 때 읽음 처리하면 화면이 NEW를 보여 주기 전에 사라졌다.
+  - 조회수 집계는 글 상세 조회가 끝난 뒤 이벤트(`PostViewedEvent`)로 처리해, 통계가 실패해도 글은 열린다.
+  - 비밀번호 변경 알림 메일(CF-15-16, CF-25-10)은 선택 기능이라 넣지 않았다.
 
 ## Notes
 
